@@ -1,0 +1,211 @@
+.story-page {
+  width: 100%;
+}
+
+.story-hero {
+  background: 
+    linear-gradient(135deg, rgba(62, 78, 57, 0.9) 0%, rgba(92, 61, 46, 0.9) 100%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Cpath d='M0 0h80v80H0V0zm20 20v40h40V20H20zm2 2h36v36H22V22z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.story-content {
+  padding: 6rem 2rem;
+  background: linear-gradient(180deg, var(--cream) 0%, var(--light-sand) 100%);
+}
+
+.story-intro {
+  max-width: 1000px;
+  margin: 0 auto 5rem;
+  text-align: center;
+}
+
+.intro-text {
+  font-size: 1.3rem;
+  line-height: 2;
+  color: var(--dark-brown);
+  font-style: italic;
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  border-left: 5px solid var(--saffron-gold);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.story-timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.story-timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--saffron-gold);
+  transform: translateX(-50%);
+}
+
+.story-chapter {
+  position: relative;
+  margin-bottom: 6rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 3rem;
+}
+
+.story-chapter.left {
+  flex-direction: row;
+}
+
+.story-chapter.right {
+  flex-direction: row-reverse;
+}
+
+.chapter-marker {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+}
+
+.chapter-icon {
+  width: 80px;
+  height: 80px;
+  background: var(--saffron-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--army-green);
+  box-shadow: 0 0 0 8px white, 0 0 0 12px var(--saffron-gold);
+  margin-bottom: 1rem;
+}
+
+.chapter-year {
+  background: var(--army-green);
+  color: var(--saffron-gold);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.chapter-content {
+  flex: 1;
+  background: white;
+  padding: 3rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--saffron-gold);
+  max-width: calc(50% - 80px);
+}
+
+.story-chapter.left .chapter-content {
+  margin-right: auto;
+}
+
+.story-chapter.right .chapter-content {
+  margin-left: auto;
+}
+
+.chapter-content h2 {
+  font-size: 2rem;
+  color: var(--army-green);
+  margin-bottom: 1.5rem;
+}
+
+.chapter-text p {
+  color: var(--dark-brown);
+  line-height: 1.9;
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+
+.chapter-image-placeholder {
+  margin-top: 2rem;
+  height: 250px;
+  background: linear-gradient(135deg, var(--desert-brown) 0%, var(--army-green) 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.story-conclusion {
+  max-width: 1000px;
+  margin: 5rem auto 0;
+  padding: 3rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-top: 5px solid var(--saffron-gold);
+}
+
+.story-conclusion h2 {
+  font-size: 2.5rem;
+  color: var(--army-green);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.story-conclusion p {
+  font-size: 1.15rem;
+  line-height: 2;
+  color: var(--dark-brown);
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 968px) {
+  .story-timeline::before {
+    left: 30px;
+  }
+
+  .story-chapter.left,
+  .story-chapter.right {
+    flex-direction: row;
+    padding-left: 100px;
+  }
+
+  .chapter-marker {
+    left: 30px;
+  }
+
+  .chapter-content {
+    max-width: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-content {
+    padding: 4rem 1rem;
+  }
+
+  .intro-text {
+    font-size: 1.1rem;
+    padding: 1.5rem;
+  }
+
+  .chapter-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .chapter-content h2 {
+    font-size: 1.6rem;
+  }
+
+  .chapter-text p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,302 @@
+.gallery-page {
+  width: 100%;
+}
+
+.gallery-hero {
+  background: 
+    linear-gradient(135deg, rgba(92, 61, 46, 0.9) 0%, rgba(139, 90, 43, 0.9) 100%),
+    url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.05'%3E%3Crect width='100' height='100'/%3E%3Crect x='10' y='10' width='20' height='20'/%3E%3Crect x='70' y='10' width='20' height='20'/%3E%3Crect x='10' y='70' width='20' height='20'/%3E%3Crect x='70' y='70' width='20' height='20'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.gallery-content {
+  padding: 6rem 2rem;
+  background: var(--cream);
+}
+
+.gallery-controls {
+  max-width: 1400px;
+  margin: 0 auto 3rem;
+}
+
+.search-box {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  position: relative;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--desert-brown);
+  font-size: 1.2rem;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  border: 2px solid var(--light-sand);
+  border-radius: 50px;
+  font-size: 1rem;
+  font-family: 'Merriweather', serif;
+  transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--saffron-gold);
+  box-shadow: 0 0 0 4px rgba(219, 158, 54, 0.1);
+}
+
+.gallery-filters {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.gallery-filters button {
+  background: white;
+  color: var(--army-green);
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.gallery-filters button:hover,
+.gallery-filters button.active {
+  background: var(--army-green);
+  color: var(--saffron-gold);
+  border-color: var(--saffron-gold);
+  transform: translateY(-2px);
+}
+
+.gallery-grid-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item-page {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item-page:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-placeholder-page {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--desert-brown) 0%, var(--army-green) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item-page:hover .gallery-placeholder-page {
+  transform: scale(1.1);
+}
+
+.placeholder-content-page {
+  text-align: center;
+  color: white;
+  padding: 2rem;
+}
+
+.placeholder-content-page h4 {
+  font-size: 1.4rem;
+  color: var(--saffron-gold);
+  margin-bottom: 0.5rem;
+}
+
+.image-year {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 15px;
+  font-size: 0.9rem;
+  color: var(--cream);
+}
+
+.gallery-overlay-page {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.95));
+  padding: 2rem 1.5rem 1.5rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item-page:hover .gallery-overlay-page {
+  transform: translateY(0);
+}
+
+.gallery-overlay-page h4 {
+  color: var(--saffron-gold);
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-overlay-page p {
+  color: white;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.no-results {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--dark-brown);
+  font-size: 1.2rem;
+}
+
+.lightbox-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.lightbox-content-page {
+  position: relative;
+  max-width: 1200px;
+  width: 100%;
+  background: var(--army-green);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 4px solid var(--saffron-gold);
+}
+
+.close-btn-page {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--saffron-gold);
+  color: var(--army-green);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.close-btn-page:hover {
+  transform: rotate(90deg);
+  background: var(--cream);
+}
+
+.lightbox-image-page {
+  height: 500px;
+  background: linear-gradient(135deg, var(--desert-brown) 0%, var(--army-green) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.lightbox-placeholder {
+  text-align: center;
+  color: white;
+}
+
+.lightbox-placeholder h3 {
+  font-size: 2.5rem;
+  color: var(--saffron-gold);
+  margin-bottom: 1rem;
+}
+
+.lightbox-year {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1.1rem;
+  color: var(--cream);
+}
+
+.lightbox-info {
+  padding: 2.5rem;
+  background: white;
+}
+
+.lightbox-info h3 {
+  font-size: 2rem;
+  color: var(--army-green);
+  margin-bottom: 1rem;
+}
+
+.lightbox-category {
+  color: var(--desert-brown);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.lightbox-category span {
+  color: var(--saffron-gold);
+  text-transform: capitalize;
+}
+
+.lightbox-description {
+  color: var(--dark-brown);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.lightbox-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-small {
+  padding: 0.7rem 1.5rem;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+  .gallery-grid-page {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox-image-page {
+    height: 300px;
+  }
+
+  .lightbox-info {
+    padding: 1.5rem;
+  }
+
+  .lightbox-actions {
+    flex-direction: column;
+  }
+}

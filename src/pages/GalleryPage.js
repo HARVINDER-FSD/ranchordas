@@ -1,0 +1,442 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaTimes, FaSearch, FaDownload, FaShareAlt } from 'react-icons/fa';
+import './GalleryPage.css';
+
+const galleryImages = [
+  // Medals & Awards (4 images)
+
+  {
+    id: 2,
+    title: 'Sangram Medal',
+    category: 'medals',
+    year: '1971',
+    description: 'The Sangram Medal recognizing exceptional contribution during the 1971 Bangladesh Liberation War.',
+    imagePath: '/assets/ranchordas/medal 1.png'
+  },
+  {
+    id: 3,
+    title: 'Police Medal',
+    category: 'medals',
+    year: 'Service',
+    description: 'Police Medal for Meritorious Service honoring his footprint tracking expertise.',
+    imagePath: '/assets/ranchordas/medal 2.png'
+  },
+  {
+    id: 4,
+    title: 'Service Medal',
+    category: 'medals',
+    year: 'Service',
+    description: 'Additional service medal recognizing his dedication to border security.',
+    imagePath: '/assets/ranchordas/medal 3.png'
+  },
+
+  // Certificates & Documents (10 images)
+  {
+    id: 5,
+    title: 'Official Certificate',
+    category: 'photos',
+    year: '1971',
+    description: 'Official certificate documenting his service and contributions.',
+    imagePath: '/assets/ranchordas/certificate.png'
+  },
+  {
+    id: 6,
+    title: 'Service Certificate 1',
+    category: 'photos',
+    year: '1965',
+    description: 'Certificate from 1965 war service period.',
+    imagePath: '/assets/ranchordas/certificate 1 .png'
+  },
+  {
+    id: 7,
+    title: 'Service Certificate 2',
+    category: 'photos',
+    year: '1971',
+    description: 'Certificate from 1971 war service period.',
+    imagePath: '/assets/ranchordas/certificate 2.png'
+  },
+  {
+    id: 8,
+    title: 'Service Certificate 3',
+    category: 'photos',
+    year: '1970s',
+    description: 'Official service documentation.',
+    imagePath: '/assets/ranchordas/certificate 3.png'
+  },
+  {
+    id: 9,
+    title: 'Service Certificate 4',
+    category: 'photos',
+    year: '1970s',
+    description: 'Recognition certificate for border security work.',
+    imagePath: '/assets/ranchordas/certificate 4.png'
+  },
+  {
+    id: 10,
+    title: 'Service Certificate 5',
+    category: 'photos',
+    year: '1970s',
+    description: 'Official documentation of service record.',
+    imagePath: '/assets/ranchordas/certificate 5.png'
+  },
+  {
+    id: 11,
+    title: 'Service Certificate 6',
+    category: 'photos',
+    year: '1970s',
+    description: 'Additional service certificate.',
+    imagePath: '/assets/ranchordas/certificate 6.png'
+  },
+  {
+    id: 12,
+    title: 'Death Certificate',
+    category: 'photos',
+    year: 'Historical',
+    description: 'Official death certificate document.',
+    imagePath: '/assets/ranchordas/death certificate .png'
+  },
+  {
+    id: 13,
+    title: 'Income Certificate',
+    category: 'photos',
+    year: 'Historical',
+    description: 'Historical income certificate document.',
+    imagePath: '/assets/ranchordas/income certificate .png'
+  },
+  {
+    id: 14,
+    title: 'Invitation Card',
+    category: 'photos',
+    year: '1971',
+    description: 'Official invitation card from award ceremony.',
+    imagePath: '/assets/ranchordas/invitation card.png'
+  },
+  {
+    id: 15,
+    title: 'Memorial Statue',
+    category: 'photos',
+    year: 'Modern',
+    description: 'Statue erected in honor of Ranchordas Pagi.',
+    imagePath: '/assets/ranchordas/stachyu .png'
+  },
+
+  // Press Coverage & News Articles (18 images)
+  {
+    id: 16,
+    title: 'News Article - War Hero',
+    category: 'press',
+    year: '1971',
+    description: 'Newspaper coverage of his war contributions.',
+    imagePath: '/assets/ranchordas/news artical.png'
+  },
+  {
+    id: 17,
+    title: 'Press Coverage 2',
+    category: 'press',
+    year: '1971',
+    description: 'Media coverage highlighting his achievements.',
+    imagePath: '/assets/ranchordas/news artical 2.png'
+  },
+  {
+    id: 18,
+    title: 'Press Coverage 3',
+    category: 'press',
+    year: '1971',
+    description: 'News article about his service.',
+    imagePath: '/assets/ranchordas/news artical 3.png'
+  },
+  {
+    id: 19,
+    title: 'Press Coverage 4',
+    category: 'press',
+    year: '1972',
+    description: 'Post-war recognition in media.',
+    imagePath: '/assets/ranchordas/news artical 4.png'
+  },
+  {
+    id: 20,
+    title: 'Press Coverage 5',
+    category: 'press',
+    year: '1972',
+    description: 'Newspaper feature story.',
+    imagePath: '/assets/ranchordas/news artical 5.png'
+  },
+  {
+    id: 21,
+    title: 'Press Coverage 6',
+    category: 'press',
+    year: '1972',
+    description: 'Media article about his legacy.',
+    imagePath: '/assets/ranchordas/news artical 6.png'
+  },
+  {
+    id: 22,
+    title: 'Press Coverage 7',
+    category: 'press',
+    year: '1970s',
+    description: 'Press coverage of his work.',
+    imagePath: '/assets/ranchordas/news artical 7.png'
+  },
+  {
+    id: 23,
+    title: 'Press Coverage 8',
+    category: 'press',
+    year: '1970s',
+    description: 'News article highlighting his expertise.',
+    imagePath: '/assets/ranchordas/news artical 8.png'
+  },
+  {
+    id: 24,
+    title: 'Press Coverage 9',
+    category: 'press',
+    year: '1970s',
+    description: 'Media recognition of his service.',
+    imagePath: '/assets/ranchordas/news artical 9.png'
+  },
+  {
+    id: 25,
+    title: 'Press Coverage 10',
+    category: 'press',
+    year: '1970s',
+    description: 'Newspaper article about his contributions.',
+    imagePath: '/assets/ranchordas/news artical 10.png'
+  },
+  {
+    id: 26,
+    title: 'Press Coverage 11',
+    category: 'press',
+    year: '1970s',
+    description: 'Press feature on his achievements.',
+    imagePath: '/assets/ranchordas/news artical 11.png'
+  },
+  {
+    id: 27,
+    title: 'Press Coverage 12',
+    category: 'press',
+    year: '1970s',
+    description: 'News coverage of his legacy.',
+    imagePath: '/assets/ranchordas/news artical 12.png'
+  },
+  {
+    id: 28,
+    title: 'Press Coverage 13',
+    category: 'press',
+    year: '1980s',
+    description: 'Later media coverage.',
+    imagePath: '/assets/ranchordas/news artical 13.png'
+  },
+  {
+    id: 29,
+    title: 'Press Coverage 14',
+    category: 'press',
+    year: '1980s',
+    description: 'Newspaper article about his impact.',
+    imagePath: '/assets/ranchordas/news artical 14.png'
+  },
+  {
+    id: 30,
+    title: 'Press Coverage 15',
+    category: 'press',
+    year: '1980s',
+    description: 'Press recognition of his service.',
+    imagePath: '/assets/ranchordas/news artical 15.png'
+  },
+  {
+    id: 31,
+    title: 'Press Coverage 16',
+    category: 'press',
+    year: '1980s',
+    description: 'Media coverage of his story.',
+    imagePath: '/assets/ranchordas/news artical 16.png'
+  },
+  {
+    id: 32,
+    title: 'Press Coverage 17',
+    category: 'press',
+    year: '1980s',
+    description: 'News article about his legacy.',
+    imagePath: '/assets/ranchordas/news artical 17.png'
+  },
+  {
+    id: 33,
+    title: 'Press Coverage 18',
+    category: 'press',
+    year: '1980s',
+    description: 'Final press coverage documentation.',
+    imagePath: '/assets/ranchordas/news artical 18.png'
+  }
+];
+
+const GalleryPage = () => {
+  const [filter, setFilter] = useState('all');
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredImages = galleryImages.filter(img => {
+    const matchesFilter = filter === 'all' || img.category === filter;
+    const matchesSearch = img.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                         img.description.toLowerCase().includes(searchTerm.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  return (
+    <div className="gallery-page">
+      <section className="page-hero gallery-hero">
+        <div className="hero-overlay"></div>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="page-title">PHOTO GALLERY</h1>
+            <p className="page-subtitle">
+              Visual evidence of a hero's journey — medals, rare photographs & press coverage
+            </p>
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="gallery-content">
+        <div className="container">
+          {/* Search and Filter */}
+          <motion.div 
+            className="gallery-controls"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+          >
+            <div className="search-box">
+              <FaSearch />
+              <input 
+                type="text" 
+                placeholder="Search images..." 
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+
+            <div className="gallery-filters">
+              <button 
+                className={filter === 'all' ? 'active' : ''}
+                onClick={() => setFilter('all')}
+              >
+                All ({galleryImages.length})
+              </button>
+              <button 
+                className={filter === 'medals' ? 'active' : ''}
+                onClick={() => setFilter('medals')}
+              >
+                Medals & Awards ({galleryImages.filter(img => img.category === 'medals').length})
+              </button>
+              <button 
+                className={filter === 'photos' ? 'active' : ''}
+                onClick={() => setFilter('photos')}
+              >
+                Rare Photographs ({galleryImages.filter(img => img.category === 'photos').length})
+              </button>
+              <button 
+                className={filter === 'press' ? 'active' : ''}
+                onClick={() => setFilter('press')}
+              >
+                Press Coverage ({galleryImages.filter(img => img.category === 'press').length})
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Gallery Grid */}
+          <motion.div 
+            className="gallery-grid-page"
+            layout
+          >
+            <AnimatePresence>
+              {filteredImages.map((image) => (
+                <motion.div
+                  key={image.id}
+                  className="gallery-item-page"
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.8 }}
+                  transition={{ duration: 0.4 }}
+                  onClick={() => setSelectedImage(image)}
+                >
+                  <div className="gallery-placeholder-page">
+                    <img 
+                      src={image.imagePath} 
+                      alt={image.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
+                  </div>
+                  <div className="gallery-overlay-page">
+                    <h4>{image.title}</h4>
+                    <p>{image.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          {filteredImages.length === 0 && (
+            <div className="no-results">
+              <p>No images found matching your search.</p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div 
+            className="lightbox-page"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedImage(null)}
+          >
+            <motion.div 
+              className="lightbox-content-page"
+              initial={{ scale: 0.8, y: 50 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.8, y: 50 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button className="close-btn-page" onClick={() => setSelectedImage(null)}>
+                <FaTimes />
+              </button>
+              
+              <div className="lightbox-image-page">
+                <img 
+                  src={selectedImage.imagePath} 
+                  alt={selectedImage.title}
+                  style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                />
+              </div>
+
+              <div className="lightbox-info">
+                <h3>{selectedImage.title}</h3>
+                <p className="lightbox-category">
+                  Category: <span>{selectedImage.category}</span> | Year: <span>{selectedImage.year}</span>
+                </p>
+                <p className="lightbox-description">{selectedImage.description}</p>
+                
+                <div className="lightbox-actions">
+                  <button className="btn-secondary btn-small">
+                    <FaDownload /> Download
+                  </button>
+                  <button className="btn-secondary btn-small">
+                    <FaShareAlt /> Share
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+export default GalleryPage;
