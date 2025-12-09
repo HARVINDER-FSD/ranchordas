@@ -29,7 +29,7 @@ const Navbar = () => {
     >
       <div className="nav-container">
         <Link to="/" className="nav-logo" onClick={closeMenu}>
-          <img src={`${process.env.PUBLIC_URL}/assets/logo.jpg`} alt="Ranchordas Pagi" className="logo-image" />
+          <img src="/assets/logo.jpg" alt="Ranchordas Pagi" className="logo-image" />
           <span> Veer Ranchhod Pagi</span>
         </Link>
         
