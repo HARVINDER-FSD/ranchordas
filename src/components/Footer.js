@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section">
           <div className="footer-logo">
-            <img src="/assets/logo.jpg" alt="Ranchordas Pagi" className="logo-image" />
+            <img src={`${process.env.PUBLIC_URL}/assets/logo.jpg`} alt="Ranchordas Pagi" className="logo-image" />
             <h3>Veer Ranchhod Pagi</h3>
           </div>
           <p className="footer-tagline">
