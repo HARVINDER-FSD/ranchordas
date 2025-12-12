@@ -11,10 +11,7 @@ const HomePage = () => {
       <section className="hero-home sand-texture" style={{ backgroundImage: `linear-gradient(135deg, rgba(139, 90, 43, 0.85) 0%, rgba(62, 78, 57, 0.85) 100%), url(${process.env.PUBLIC_URL}/assets/book.jpg)` }}>
         <div className="hero-overlay"></div>
         
-        <div className="footprint" style={{ left: '10%', top: '20%', animationDelay: '0s' }}></div>
-        <div className="footprint" style={{ left: '15%', top: '40%', animationDelay: '1s' }}></div>
-        <div className="footprint" style={{ right: '20%', top: '30%', animationDelay: '2s' }}></div>
-        <div className="footprint" style={{ right: '10%', top: '60%', animationDelay: '3s' }}></div>
+
         
         <div className="hero-content">
           <motion.div 

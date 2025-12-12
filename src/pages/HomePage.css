@@ -101,44 +101,7 @@
   letter-spacing: 2px;
 }
 
-.scroll-indicator {
-  position: absolute;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-}
 
-.scroll-arrow {
-  width: 30px;
-  height: 50px;
-  border: 2px solid var(--saffron-gold);
-  border-radius: 25px;
-  position: relative;
-}
-
-.scroll-arrow::before {
-  content: '';
-  position: absolute;
-  top: 10px;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  background: var(--saffron-gold);
-  border-radius: 50%;
-  transform: translateX(-50%);
-  animation: scroll 2s infinite;
-}
-
-@keyframes scroll {
-  0% {
-    top: 10px;
-    opacity: 1;
-  }
-  100% {
-    top: 30px;
-    opacity: 0;
-  }
-}
 
 /* Quick Links Section */
 .quick-links {
